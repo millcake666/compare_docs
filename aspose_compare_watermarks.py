@@ -14,6 +14,6 @@ doc.compare(doc2, 'user', date.today())
 
 # save the document to get the revisions
 if doc.revisions.count > 0:
-    doc.save(dir_path + 'diff/compared.docx')
+    doc.save(dir_path + 'diff/compared2.docx')
 else:
     print('Documents are equal')
