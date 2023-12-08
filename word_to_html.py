@@ -7,7 +7,7 @@ from word_tools import view_html
 
 def main():
     base_dir = os.path.join(os.path.abspath(os.getcwd()), 'data')
-    docx_path = 'Договор поставки Товара (ООО ТОЧИНВЕСТ-ШЗМК - покупатель) 2022.docx'
+    docx_path = 'Договор на поставку товара № 129-23.docx'
     save_dir = 'html_doc'
     export_filename = 'index'
     word2html(export_filename, os.path.join(base_dir, docx_path), os.path.join(base_dir, save_dir))
