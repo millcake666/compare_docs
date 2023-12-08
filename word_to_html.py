@@ -1,8 +1,19 @@
-import mammoth
+from word_tools.ToHtmlExport import word2html
+import os
+from word_tools import view_html
 
-f = open("data/Договор поставки Товара (ООО ТОЧИНВЕСТ-ШЗМК - покупатель) 2022.docx", 'rb')
-b = open('filename.html', 'wb')
-document = mammoth.convert_to_html(f)
-b.write(document.value.encode('utf8'))
-f.close()
-b.close()
+# !pip install plum-dispatch
+
+
+def main():
+    base_dir = os.path.join(os.path.abspath(os.getcwd()), 'data')
+    docx_path = 'Договор поставки Товара (ООО ТОЧИНВЕСТ-ШЗМК - покупатель) 2022.docx'
+    save_dir = 'html_doc'
+    export_filename = 'index'
+    word2html(export_filename, os.path.join(base_dir, docx_path), os.path.join(base_dir, save_dir))
+
+    view_html.prepare_to_view(os.path.join(base_dir, save_dir, export_filename + '.html'))
+
+
+if __name__ == '__main__':
+    main()
