@@ -1,30 +1,23 @@
 {
   "main_information": {
-    "status": "Ввод сведений",
-    "registry_number": "Не присвоен",
-    "completed_purchase": "0080565-23",
     "conclusion_law": "44-ФЗ",
-    "placement_method": "Единственный поставщик",
     "basis_conclusion": "п. 4 ч. 1 ст. 93 Закупка объемом до 600 тысяч рублей",
-    "contract_security_required": "Не требуется",
     "number": "ПРМ-0845/1123",
     "validity": {
-      "from": "",
-      "to": "29.12.2023",
-      "from_moment_signing": true
+      "from": "C момента заключения Договора",
+      "to": "29.12.2023"
     },
     "subject_contract": "Провод монтажный витой",
-    "place_detention": "",
+    "place_detention": "614077, Пермь, проспект Мира, 1",
     "IKZ": 565235652301090747849349893483453333,
     "source_financing": "Бюджетные средства",
-    "NDS_is_not_appearing": false,
-    "value": 220000,
-    "is_prepayment": false,
-    "prepayment": 0
+    "NDS_appearing": "без налога (НДС)",
+    "value": "220000",
+    "prepayment": "Аванс не предусмотрен"
   },
   "customer_information": {
     "name": "Пермская компания нефтяного производства",
-    "signatory": "Лукьянов Михаил Владимирович (Генеральный директор)",
+    "signatory": "Лукьянов Михаил Владимирович",
     "general_information": {
       "actual_address": "Пермский край, Пермь, веерная",
       "INN": "8623988932",
@@ -38,7 +31,7 @@
       "checking_account": "93224643570000005600"
     },
     "contact_details": {
-      "contact person": "Шестакова Елена Ниолаевна",
+      "contact_person": "Шестакова Елена Ниолаевна",
       "phone": "+73422357121",
       "email": "shestakova@dor.permkai.ru"
     }
@@ -59,27 +52,21 @@
       "checking_account": "93224643570000005600"
     },
     "contact_details": {
-      "contact person": "Шестакова Елена Ниолаевна",
+      "contact_person": "Шестакова Елена Ниолаевна",
       "phone": "+73422357121",
       "email": "shestakova@dor.permkai.ru"
     }
   },
   "specification": {
     "item_name": "Проводка",
-    "OKPD2": "29.32.30.390",
-    "price_with_NDS": 11,
-    "count": "200 комплектов",
+    "unit": "Штука",
+    "price": 24500,
+    "count": 200,
     "NDS": "0%",
-    "value_with_NDS": 220000
+    "value": 220000
   },
   "delivery_information": {
-    "delivery_stage": {
-      "address": "Пермь, проспект Мира, 1",
-      "delivery_time": "от 10 до 15 дней",
-      "item_name": "Проводка",
-      "price_with_NDS": 11,
-      "count": "200 комплектов",
-      "value_with_NDS": 220000
-    }
+    "address": "Пермь, проспект Мира, 1",
+    "delivery_time": "от 10 до 15 дней"
   }
 }
