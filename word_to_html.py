@@ -5,15 +5,14 @@ from word_tools import view_html
 # !pip install plum-dispatch
 
 
-def main():
-    base_dir = os.path.join(os.path.abspath(os.getcwd()), 'data')
-    docx_path = 'Договор на поставку товара № 129-23.docx'
-    save_dir = 'html_doc'
-    export_filename = 'index'
-    word2html(export_filename, os.path.join(base_dir, docx_path), os.path.join(base_dir, save_dir))
-
-    view_html.prepare_to_view(os.path.join(base_dir, save_dir, export_filename + '.html'))
+def word_to_html(word_path: str, save_dir_path: str, html_filename: str):
+    word2html(html_filename, word_path, save_dir_path)
+    view_html.prepare_to_view(os.path.join(save_dir_path, html_filename + '.html'))
 
 
 if __name__ == '__main__':
-    main()
+    word_to_html(
+        word_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\Договор на поставку товара № 129-23.docx',
+        save_dir_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\html_doc',
+        html_filename='index'
+    )
