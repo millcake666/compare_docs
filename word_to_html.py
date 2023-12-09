@@ -10,7 +10,7 @@ def word_to_html(word_path: str, save_dir_path: str, html_filename: str):
 
 if __name__ == '__main__':
     word_to_html(
-        word_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\Договор на поставку товара № 129-23.docx',
-        save_dir_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\html_doc',
+        word_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\diff\result\CompareDocuments.docx',
+        save_dir_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\diff\result',
         html_filename='index'
     )
