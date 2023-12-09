@@ -2,8 +2,6 @@ from word_tools.ToHtmlExport import word2html
 import os
 from word_tools import view_html
 
-# !pip install plum-dispatch
-
 
 def word_to_html(word_path: str, save_dir_path: str, html_filename: str):
     word2html(html_filename, word_path, save_dir_path)

@@ -3,7 +3,7 @@ from spire.doc.common import *
 import os
 
 
-def get_paragraph_list(file_path: str) -> list:
+def get_paragraph_list(file_path: str, is_save_txt_file: bool = False) -> list:
     # Create Word document1.
     document1 = Document()
 
@@ -32,12 +32,19 @@ def get_paragraph_list(file_path: str) -> list:
     with open(os.path.join(os.getcwd(), r'data\temp\file.txt'), 'r+', encoding='utf-8') as file:
         txt = file.readlines()[1:]
 
-    return [t for t in txt if t != '\n']
+    result = [t for t in txt if t != '\n']
+
+    if is_save_txt_file:
+        with open(os.path.join(os.getcwd(), r'data\txt_doc\extracted_txt_paragraph.txt'), 'w', encoding='utf-8') as f:
+            f.writelines(result)
+
+    return result
 
 
 if __name__ == '__main__':
     res = get_paragraph_list(
-        file_path=r"C:\Users\millcake\PycharmProjects\compare_docs\data\Договор на поставку товара № 129-23.docx"
+        file_path=r"C:\Users\millcake\PycharmProjects\compare_docs\data\Договор на поставку товара № 129-23.docx",
+        is_save_txt_file=False
     )
 
     print(res)
