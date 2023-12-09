@@ -1,0 +1,1 @@
+STRING = 'Evaluation Warning: The document was created with Spire.Doc for Python.'
