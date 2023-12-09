@@ -23,6 +23,48 @@
     "prepayment": 0
   },
   "customer_information": {
+    "name": "Пермская компания нефтяного производства",
+    "signatory": "Лукьянов Михаил Владимирович (Генеральный директор)",
+    "general_information": {
+      "actual_address": "Пермский край, Пермь, веерная",
+      "INN": "8623988932",
+      "KPP": "192547898",
+      "OGRN": "5176525234808"
+    },
+    "bank_details": {
+      "bank_name": "ОТДЕЛЕНИЕ ПЕРМЬ БАНКА РОССИИ//УФК ПО ПЕРМСКОМУ КРАЮ",
+      "BIK": "015773997",
+      "correspondent_account": "40102810145370000048",
+      "checking_account": "93224643570000005600"
+    },
+    "contact_details": {
+      "contact person": "Шестакова Елена Ниолаевна",
+      "phone": "+73422357121",
+      "email": "shestakova@dor.permkai.ru"
+    }
+  },
+  "supplier_information": {
+    "name": "Пермская компания нефтяного производства",
+    "signatory": "Лукьянов Михаил Владимирович (Генеральный директор)",
+    "general_information": {
+      "actual_address": "Пермский край, Пермь, веерная",
+      "INN": "8623988932",
+      "KPP": "192547898",
+      "OGRN": "5176525234808"
+    },
+    "bank_details": {
+      "bank_name": "ОТДЕЛЕНИЕ ПЕРМЬ БАНКА РОССИИ//УФК ПО ПЕРМСКОМУ КРАЮ",
+      "BIK": "015773997",
+      "correspondent_account": "40102810145370000048",
+      "checking_account": "93224643570000005600"
+    },
+    "contact_details": {
+      "contact person": "Шестакова Елена Ниолаевна",
+      "phone": "+73422357121",
+      "email": "shestakova@dor.permkai.ru"
+    }
+  },
+  "specification": {
 
   }
 }
