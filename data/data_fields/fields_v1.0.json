@@ -1,0 +1,28 @@
+{
+  "main_information": {
+    "status": "Ввод сведений",
+    "registry_number": "Не присвоен",
+    "completed_purchase": "0080565-23",
+    "conclusion_law": "44-ФЗ",
+    "placement_method": "Единственный поставщик",
+    "basis_conclusion": "п. 4 ч. 1 ст. 93 Закупка объемом до 600 тысяч рублей",
+    "contract_security_required": "Не требуется",
+    "number": "ПРМ-0845/1123",
+    "validity": {
+      "from": "",
+      "to": "29.12.2023",
+      "from_moment_signing": true
+    },
+    "subject_contract": "Провод монтажный витой",
+    "place_detention": "",
+    "IKZ": 565235652301090747849349893483453333,
+    "source_financing": "Бюджетные средства",
+    "NDS_is_not_appearing": false,
+    "price": 220000,
+    "is_prepayment": false,
+    "prepayment": 0
+  },
+  "customer_information": {
+
+  }
+}
