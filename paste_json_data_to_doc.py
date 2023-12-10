@@ -11,26 +11,10 @@ def get_item(data: dict, key: int, keys: list):
     return get_item(data[keys[key]], key + 1, keys)
 
 
-def remove_tags_from_html(html_path: str, tags_list_path: str):
-    with open(tags_list_path, 'r+', encoding='utf-8') as tags_file:
+def paste_json(doc_old_path: str, doc_new_path: str, json_path: str, html_view_dir: str, export_to_html=False):
+    with open(os.path.join(os.getcwd(), r'data\actual_document\html_view\tags_list.txt'), 'r+', encoding='utf-8') as tags_file:
         tags_list = [q[:-1] for q in tags_file.readlines()]
-        # print(tags_list)
 
-    with open(html_path, 'r+', encoding='utf-8') as file:
-        html = file.readlines()
-
-        for i, h in enumerate(html):
-            if '$' in h:
-                for tag in tags_list:
-                    if tag in h:
-                        html[i] = h.replace(tag, '')
-                        html[i] = html[i].replace('$', '')
-
-    with open(html_path, 'w', encoding='utf-8') as f:
-        f.writelines(html)
-
-
-def paste_json(doc_old_path: str, doc_new_path: str, json_path: str, html_view_dir: str):
     # actual doc
     document1 = Document()
     document1.LoadFromFile(doc_old_path)
@@ -55,17 +39,24 @@ def paste_json(doc_old_path: str, doc_new_path: str, json_path: str, html_view_d
                     target_data = get_item(json_data, 0, j_keys)
                     str_to_replace = str(target_data[j_keys[-1]])
 
-                    s1.Paragraphs[para].Text = text.replace(p_data[1], str_to_replace)
+                    # вот тут заменили данные в полях
+                    tmp_text = text.replace(p_data[1], str_to_replace)
+
+                    # далее удаляем теги из полей
+                    for tag in tags_list:
+                        if tag in tmp_text:
+                            tmp_text = tmp_text.replace(tag, '')
+                    tmp_text = tmp_text.replace('$', '')
+
+                    # пишем обновленный параграф в документ
+                    s1.Paragraphs[para].Text = tmp_text
 
         # ... добавить изменение данных в таблицах
 
     document1.SaveToFile(doc_new_path, FileFormat.Docx2013)
 
-    word_to_html(doc_new_path, html_view_dir, 'actual_index')
-
-    remove_tags_from_html(os.path.join(html_view_dir, 'actual_index.html'), os.path.join(html_view_dir, 'tags_list.txt'))
-
-
+    if export_to_html:
+        word_to_html(doc_new_path, html_view_dir, 'actual_index')
 
 
 if __name__ == '__main__':
