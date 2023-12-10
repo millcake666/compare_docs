@@ -66,6 +66,8 @@ def paste_json(doc_old_path: str, doc_new_path: str, json_path: str, html_view_d
     remove_tags_from_html(os.path.join(html_view_dir, 'actual_index.html'), os.path.join(html_view_dir, 'tags_list.txt'))
 
 
+
+
 if __name__ == '__main__':
     DOC_PATH_OLD = r'C:\Users\millcake\PycharmProjects\compare_docs\data\actual_document\Договор на поставку товара № 129-23 with scope.docx'
     DOC_PATH_NEW = r'C:\Users\millcake\PycharmProjects\compare_docs\data\actual_document\Договор на поставку товара № 129-23 with scope2.docx'

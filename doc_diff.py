@@ -6,25 +6,33 @@ import os
 from paste_json_data_to_doc import paste_json
 
 
-def make_diff(file1_path: str, file2_path: str, output_file_path: str, html_filename: str, old_json_path: str, new_json_path: str):
-    paste_json(file1_path, '', old_json_path, )
+def make_diff(doc_path: str, output_html_path: str, html_filename: str, old_json_path: str, new_json_path: str):
+    path_to_first_doc = os.path.join(os.getcwd(), r'data\tmp\tmp_doc_old.docx')
+    path_to_second_doc = os.path.join(os.getcwd(), r'data\tmp\tmp_doc_new.docx')
+    path_to_diff_doc = os.path.join(os.getcwd(), r'data\diff\result\comparedDocx.docx')
+    path_to_doc2html_after_updated = os.path.join(os.getcwd(), r'data\actual_document\html_view')
+
+    # make doc with old data from json
+    paste_json(doc_path, path_to_first_doc, old_json_path, path_to_doc2html_after_updated)
+    # make doc with new data from json
+    paste_json(doc_path, path_to_second_doc, new_json_path, path_to_doc2html_after_updated)
 
     # Load the first document
     doc1 = Document()
-    doc1.LoadFromFile(file1_path)
+    doc1.LoadFromFile(path_to_first_doc)
     # Load the second document
     doc2 = Document()
-    doc2.LoadFromFile(file2_path)
+    doc2.LoadFromFile(path_to_second_doc)
     # Compare the two documents
     doc1.Compare(doc2, "user")
     # Save as docx file.
-    doc1.SaveToFile(output_file_path, FileFormat.Docx2013)
+    doc1.SaveToFile(path_to_diff_doc, FileFormat.Docx2013)
     doc1.Close()
     doc2.Close()
 
-    word_to_html(output_file_path, os.path.join(os.getcwd(), r'data\diff\result'), html_filename)
+    word_to_html(path_to_diff_doc, output_html_path, html_filename)
 
-    with open(os.path.join(os.getcwd(), r'data\diff\result', html_filename + '.css'), 'r+', encoding='utf-8-sig') as css_file:
+    with open(os.path.join(output_html_path, html_filename + '.css'), 'r+', encoding='utf-8-sig') as css_file:
         data_css = css_file.readlines()
         for i, k in enumerate(data_css):
             if 'ins{color:' in k and 'del{color:' in k:
@@ -35,13 +43,10 @@ def make_diff(file1_path: str, file2_path: str, output_file_path: str, html_file
 
 
 if __name__ == '__main__':
-    inputFile1 = r"C:\Users\millcake\PycharmProjects\compare_docs\data\diff\Договор на поставку товара № 129-23.docx"
-    inputFile2 = r"C:\Users\millcake\PycharmProjects\compare_docs\data\diff\Договор на поставку товара № 129-23 новый.docx"
-    outputFile = r"C:\Users\millcake\PycharmProjects\compare_docs\data\diff\result\CompareDocuments.docx"
-
     make_diff(
-        file1_path=inputFile1,
-        file2_path=inputFile2,
-        output_file_path=outputFile,
-        html_filename='index'
+        doc_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\actual_document\Договор на поставку товара № 129-23 with scope.docx',
+        output_html_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\diff\result',
+        html_filename=r'diff_index',
+        old_json_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\data_fields\fields_from_form.json',
+        new_json_path=r'C:\Users\millcake\PycharmProjects\compare_docs\data\data_fields\fields_from_form2.json'
     )
