@@ -51,7 +51,34 @@ def paste_json(doc_old_path: str, doc_new_path: str, json_path: str, html_view_d
                     # пишем обновленный параграф в документ
                     s1.Paragraphs[para].Text = tmp_text
 
-        # ... добавить изменение данных в таблицах
+        for tab in range(s1.Tables.Count):
+            for row in range(s1.Tables[tab].Rows.Count):
+                for cell in range(s1.Tables[tab].Rows[row].Cells.Count):
+                    for par in range(s1.Tables[tab].Rows[row].Cells[cell].Paragraphs.Count):
+                        table_p = s1.Tables[tab].Rows[row].Cells[cell].Paragraphs[par]
+                        table_text: str = table_p.Text
+
+                        if '$' in table_text:
+                            dollar_count = table_text.count('$') // 3
+
+                            for i in range(1, 1 + 3 * (dollar_count - 1) + 1, 3):
+                                p_data = table_text.split('$')[i:i + 2]
+                                j_keys = p_data[0].split('-')
+
+                                target_data = get_item(json_data, 0, j_keys)
+                                str_to_replace = str(target_data[j_keys[-1]])
+
+                                # вот тут заменили данные в полях
+                                tmp_text = table_text.replace(p_data[1], str_to_replace)
+
+                                # далее удаляем теги из полей
+                                for tag in tags_list:
+                                    if tag in tmp_text:
+                                        tmp_text = tmp_text.replace(tag, '')
+                                tmp_text = tmp_text.replace('$', '')
+
+                                # пишем обновленный параграф в документ
+                                s1.Tables[tab].Rows[row].Cells[cell].Paragraphs[par].Text = tmp_text
 
     document1.SaveToFile(doc_new_path, FileFormat.Docx2013)
 
