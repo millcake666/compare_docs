@@ -3,8 +3,12 @@ from spire.doc.common import *
 from word_to_html import word_to_html
 import os
 
+from paste_json_data_to_doc import paste_json
 
-def make_diff(file1_path: str, file2_path: str, output_file_path: str, html_filename: str):
+
+def make_diff(file1_path: str, file2_path: str, output_file_path: str, html_filename: str, old_json_path: str, new_json_path: str):
+    paste_json(file1_path, '', old_json_path, )
+
     # Load the first document
     doc1 = Document()
     doc1.LoadFromFile(file1_path)
