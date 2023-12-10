@@ -55,5 +55,4 @@ if __name__ == '__main__':
     new = os.path.join(os.getcwd(), r'data/data_fields/fields_from_form2.json')
 
     res = get_summary(old, new)
-    for r in res:
-        print(r)
+    print(res)
